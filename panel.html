@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>riflecheat.com | User Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8A2BE2; 
+            --secondary: #4A4A4A; 
+            --dark: #080808;
+            --darker: #030303;
+            --light: #f5f5f5;
+            --gray: #333333;
+            --purple: #8A2BE2;
+            --light-purple: #A64DFF;
+            --deep-purple: #6A1FB3;
+            --violet: #9400D3;
+            --indigo: #4B0082;
+            --light-gray: #808080;
+            --purple-glow: 0 0 10px rgba(138, 43, 226, 0.4); 
+            --intense-purple-glow: 0 0 15px rgba(166, 77, 255, 0.6);
+            --grey-gradient: linear-gradient(135deg, #4A4A4A, #333333);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--light);
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, var(--darker), #070707, var(--darker), #070707, var(--darker));
+            background-attachment: fixed;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to bottom, 
+                    rgba(20, 20, 20, 0.8), 
+                    rgba(10, 10, 10, 0.85), 
+                    rgba(5, 5, 5, 0.9)),
+                url('https://wallpaperaccess.com/full/1363028.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: var(--purple-glow); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(138, 43, 226, 0.9); }
+            100% { transform: scale(1); box-shadow: var(--purple-glow); }
+        }
+
+        @keyframes purpleFlow {
+            0% { 
+                background-position: 0% 50%;
+                box-shadow: none;
+            }
+            50% { 
+                background-position: 100% 50%;
+                box-shadow: none;
+            }
+            100% { 
+                background-position: 0% 50%;
+                box-shadow: none;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .login-card {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.6), rgba(30, 30, 30, 0.55));
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.8s ease-out;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(138, 43, 226, 0.2));
+            z-index: -1;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .login-card:hover::before {
+            transform: translateY(0);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .login-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            -webkit-text-fill-color: transparent;
+            background: linear-gradient(270deg, var(--purple), var(--light-purple), var(--violet), var(--indigo), var(--deep-purple));
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: purpleFlow 15s ease infinite;
+            filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.3));
+        }
+
+        .login-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--purple);
+            box-shadow: var(--purple-glow);
+        }
+
+        .login-btn {
+            width: 100%;
+            background: linear-gradient(270deg, var(--purple), var(--light-purple), var(--violet), var(--indigo), var(--deep-purple));
+            background-size: 400% 400%;
+            animation: purpleFlow 15s ease infinite;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .login-footer a {
+            color: var(--purple);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .login-footer a:hover {
+            text-shadow: var(--purple-glow);
+        }
+
+        .dashboard {
+            display: none;
+        }
+
+        .dashboard-header {
+            background-color: rgba(3, 3, 3, 0.97);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .dashboard-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--light);
+            text-decoration: none;
+            color: var(--purple);
+            -webkit-text-fill-color: transparent;
+            background: linear-gradient(270deg, var(--purple), var(--light-purple), var(--violet), var(--indigo), var(--deep-purple));
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: purpleFlow 15s ease infinite;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.3));
+        }
+
+        .dashboard-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .dashboard-nav-item {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 5px 0;
+            cursor: pointer;
+        }
+
+        .dashboard-nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--purple);
+            transition: width 0.3s ease;
+        }
+
+        .dashboard-nav-item:hover {
+            color: var(--purple);
+        }
+        
+        .dashboard-nav-item:hover::after,
+        .dashboard-nav-item.active::after {
+            width: 100%;
+        }
+        
+        .dashboard-nav-item.active {
+            color: var(--purple);
+        }
+
+        .dashboard-content {
+            padding: 3rem 0;
+            min-height: calc(100vh - 150px);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .dashboard-card {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.6), rgba(30, 30, 30, 0.55));
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dashboard-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(138, 43, 226, 0.2));
+            z-index: -1;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .dashboard-card:hover::before {
+            transform: translateY(0);
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .dashboard-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            -webkit-text-fill-color: transparent;
+            background: linear-gradient(270deg, var(--purple), var(--light-purple), var(--violet), var(--indigo), var(--deep-purple));
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: purpleFlow 15s ease infinite;
+            filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.3));
+        }
+
+        .announcement-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .announcement-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .announcement-item h4 {
+            color: var(--purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .announcement-item .date {
+            font-size: 0.8rem;
+            color: var(--light-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .subscription-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .subscription-detail {
+            background: rgba(10, 10, 10, 0.7);
+            border-radius: 5px;
+            padding: 1rem;
+            flex: 1 1 200px;
+        }
+
+        .subscription-detail h4 {
+            color: var(--purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .license-key-display {
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s ease;
+        }
+
+        .license-key-display::after {
+            content: 'Show Key';
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 0.7rem;
+            color: var(--purple);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .license-key-display:hover::after {
+            opacity: 1;
+        }
+
+        .download-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(10, 10, 10, 0.7);
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .download-item:hover {
+            background: rgba(138, 43, 226, 0.2);
+        }
+
+        .download-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--purple);
+        }
+
+        .download-info {
+            flex: 1;
+        }
+
+        .download-info h4 {
+            margin-bottom: 0.3rem;
+        }
+
+        .download-info .version {
+            font-size: 0.8rem;
+            color: var(--light-gray);
+        }
+
+        .download-btn {
+            background: linear-gradient(270deg, var(--purple), var(--light-purple));
+            background-size: 200% 100%;
+            animation: purpleFlow 15s ease infinite;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--purple-glow);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(138, 43, 226, 0.4);
+        }
+
+        .profile-form .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-form .form-group {
+            flex: 1 1 280px;
+            margin-bottom: 0;
+        }
+
+        .save-btn {
+            background: linear-gradient(270deg, var(--purple), var(--light-purple), var(--violet), var(--indigo), var(--deep-purple));
+            background-size: 400% 400%;
+            animation: purpleFlow 15s ease infinite;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: var(--purple-glow);
+        }
+
+        .save-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+        }
+
+        .bubbles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(270deg, 
+                rgba(138, 43, 226, 0.15), 
+                rgba(166, 77, 255, 0.15), 
+                rgba(148, 0, 211, 0.15), 
+                rgba(75, 0, 130, 0.15), 
+                rgba(106, 31, 179, 0.15));
+            background-size: 400% 400%;
+            animation: bubble 8s ease-in-out infinite, floatUp 15s linear infinite, purpleFlow 15s ease infinite;
+            filter: blur(2px);
+            box-shadow: none;
+        }
+
+        @keyframes bubble {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) translateX(0); }
+            100% { transform: translateY(-100vh) translateX(20px); }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .dashboard-header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .login-card {
+                padding: 2rem;
+            }
+
+            .subscription-detail {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="login-section">
+        <div class="login-card">
+            <div class="login-header">
+                <h2>riflecheat</h2>
+                <p>Enter your credentials to access the panel</p>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="license-key">License Key</label>
+                    <input type="text" id="license-key" class="form-control" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="form-control" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <div class="login-footer">
+                <p>Having trouble? <a href="#">Contact Support</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard" id="dashboard-section">
+        <header class="dashboard-header">
+            <div class="container dashboard-header-content">
+                <a href="#" class="logo">riflecheat</a>
+                <nav class="dashboard-nav">
+                    <div class="dashboard-nav-item active" data-tab="announcements">Announcements</div>
+                    <div class="dashboard-nav-item" data-tab="subscription">Subscription</div>
+                    <div class="dashboard-nav-item" data-tab="profile">Profile</div>
+                    <div class="dashboard-nav-item" data-tab="downloads">Downloads</div>
+                    <div class="dashboard-nav-item" id="logout-btn">Log Out</div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <div class="container">
+                <div class="tab-content active" id="announcements">
+                    <h2 class="section-title">Announcements</h2>
+                    <div class="dashboard-card">
+                        <div class="announcement-item">
+                            <h4>New Feature Release</h4>
+                            <div class="date">June 15, 2023</div>
+                            <p>We're excited to announce the addition of new player tracking features and improved vehicle modifications. Update your cheat to experience these new capabilities!</p>
+                        </div>
+                        <div class="announcement-item">
+                            <h4>Server Maintenance</h4>
+                            <div class="date">June 10, 2023</div>
+                            <p>We'll be performing scheduled maintenance on our servers on June 12 from 2 AM to 4 AM UTC. During this time, the website and download services may be temporarily unavailable.</p>
+                        </div>
+                        <div class="announcement-item">
+                            <h4>Anti-Cheat Update Response</h4>
+                            <div class="date">June 5, 2023</div>
+                            <p>In response to the recent game anti-cheat update, we've released a hotfix that ensures continued undetected operation. Please download the latest version as soon as possible.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="subscription">
+                    <h2 class="section-title">Subscription Information</h2>
+                    <div class="dashboard-card">
+                        <h3>Your Plan</h3>
+                        <div class="subscription-info">
+                            <div class="subscription-detail">
+                                <h4>Plan Type</h4>
+                                <p>Premium Lifetime</p>
+                            </div>
+                            <div class="subscription-detail">
+                                <h4>Status</h4>
+                                <p>Active</p>
+                            </div>
+                            <div class="subscription-detail">
+                                <h4>Purchase Date</h4>
+                                <p>March 15, 2023</p>
+                            </div>
+                            <div class="subscription-detail">
+                                <h4>Expiration Date</h4>
+                                <p>Never (Lifetime)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>License Key Information</h3>
+                        <div class="subscription-info">
+                            <div class="subscription-detail">
+                                <h4>License Key</h4>
+                                <p>XXXX-XXXX-XXXX-XXXX</p>
+                            </div>
+                            <div class="subscription-detail">
+                                <h4>Activations</h4>
+                                <p>1 of 2 used</p>
+                            </div>
+                            <div class="subscription-detail">
+                                <h4>Last Activation</h4>
+                                <p>June 2, 2023</p>
+                            </div>
+                            <div class="subscription-detail">
+                                <h4>HWID Status</h4>
+                                <p>Verified</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="profile">
+                    <h2 class="section-title">Profile Settings</h2>
+                    <div class="dashboard-card">
+                        <h3>Account Information</h3>
+                        <form class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-username">Username</label>
+                                    <input type="text" id="profile-username" class="form-control" value="User123">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-email">Email</label>
+                                    <input type="email" id="profile-email" class="form-control" value="user@example.com">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-discord">Discord Username</label>
+                                    <input type="text" id="profile-discord" class="form-control" value="User#1234">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-telegram">Telegram Username</label>
+                                    <input type="text" id="profile-telegram" class="form-control" value="@user123">
+                                </div>
+                            </div>
+                            <button type="submit" class="save-btn">Save Changes</button>
+                        </form>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>Change Password</h3>
+                        <form class="profile-form">
+                            <div class="form-group" style="margin-bottom: 2rem;">
+                                <label for="current-password">Current Password</label>
+                                <input type="password" id="current-password" class="form-control" placeholder="Enter your current password">
+                            </div>
+                            <div class="form-row" style="margin-bottom: 2rem;">
+                                <div class="form-group">
+                                    <label for="new-password">New Password</label>
+                                    <input type="password" id="new-password" class="form-control" placeholder="Enter new password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-password">Confirm New Password</label>
+                                    <input type="password" id="confirm-password" class="form-control" placeholder="Confirm new password">
+                                </div>
+                            </div>
+                            <button type="submit" class="save-btn" style="margin-top: 0.5rem;">Update Password</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Downloads Tab -->
+                <div class="tab-content" id="downloads">
+                    <h2 class="section-title">Downloads</h2>
+                    <div class="dashboard-card">
+                        <h3>Available Downloads</h3>
+                        <div class="download-item">
+                            <div class="download-icon">
+                                <i class="fas fa-file-download"></i>
+                            </div>
+                            <div class="download-info">
+                                <h4>riflecheat FiveM Mod Menu</h4>
+                                <div class="version">Version 3.2.1 (Latest) - June 5, 2023</div>
+                            </div>
+                            <button class="download-btn">Download</button>
+                        </div>
+                        <div class="download-item">
+                            <div class="download-icon">
+                                <i class="fas fa-file-download"></i>
+                            </div>
+                            <div class="download-info">
+                                <h4>riflecheat GTA V Mod Menu</h4>
+                                <div class="version">Version 2.9.3 (Latest) - June 2, 2023</div>
+                            </div>
+                            <button class="download-btn">Download</button>
+                        </div>
+                        <div class="download-item">
+                            <div class="download-icon">
+                                <i class="fas fa-file-archive"></i>
+                            </div>
+                            <div class="download-info">
+                                <h4>Injector Tool</h4>
+                                <div class="version">Version 1.5.0 - May 27, 2023</div>
+                            </div>
+                            <button class="download-btn">Download</button>
+                        </div>
+                        <div class="download-item">
+                            <div class="download-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="download-info">
+                                <h4>Installation & Setup Guide</h4>
+                                <div class="version">Updated June 1, 2023</div>
+                            </div>
+                            <button class="download-btn">Download</button>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>Previous Versions</h3>
+                        <div class="download-item">
+                            <div class="download-icon">
+                                <i class="fas fa-file-download"></i>
+                            </div>
+                            <div class="download-info">
+                                <h4>riflecheat FiveM Mod Menu</h4>
+                                <div class="version">Version 3.1.5 - May 20, 2023</div>
+                            </div>
+                            <button class="download-btn">Download</button>
+                        </div>
+                        <div class="download-item">
+                            <div class="download-icon">
+                                <i class="fas fa-file-download"></i>
+                            </div>
+                            <div class="download-info">
+                                <h4>riflecheat GTA V Mod Menu</h4>
+                                <div class="version">Version 2.8.7 - May 15, 2023</div>
+                            </div>
+                            <button class="download-btn">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bubbles-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createBubbles();
+
+            const keyauthAppName = "RifleCheat";
+            const keyauthOwnerId = "ExampleOwnerId";
+            const keyauthSecret = "ExampleSecret";
+            const keyauthVersion = "1.0";
+
+            const loginForm = document.getElementById('login-form');
+            const loginSection = document.getElementById('login-section');
+            const dashboardSection = document.getElementById('dashboard-section');
+            const loginErrorMsg = document.createElement('div');
+            loginErrorMsg.className = 'login-error';
+            loginErrorMsg.style.color = '#ff4d4d';
+            loginErrorMsg.style.marginTop = '1rem';
+            loginErrorMsg.style.textAlign = 'center';
+            loginErrorMsg.style.display = 'none';
+            loginForm.appendChild(loginErrorMsg);
+
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const licenseKey = document.getElementById('license-key').value;
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                
+                const loginBtn = document.querySelector('.login-btn');
+                const originalBtnText = loginBtn.innerHTML;
+                loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+                loginBtn.disabled = true;
+                
+                loginErrorMsg.style.display = 'none';
+                
+                validateKeyAuth(licenseKey, username, password)
+                    .then(response => {
+                        if (response.success) {
+                            sessionStorage.setItem('riflecheat_user', JSON.stringify({
+                                username: username,
+                                licenseKey: licenseKey,
+                                subscriptionType: response.subscriptionType,
+                                expiry: response.expiry
+                            }));
+                            
+                            loginSection.style.display = 'none';
+                            dashboardSection.style.display = 'block';
+                            updateDashboardInfo(response);
+                        } else {
+                            loginErrorMsg.textContent = response.message || 'Authentication failed. Please check your credentials.';
+                            loginErrorMsg.style.display = 'block';
+                            loginBtn.innerHTML = originalBtnText;
+                            loginBtn.disabled = false;
+                        }
+                    })
+                    .catch(error => {
+                        loginErrorMsg.textContent = 'Connection error. Please try again later.';
+                        loginErrorMsg.style.display = 'block';
+                        console.error('KeyAuth error:', error);
+                        loginBtn.innerHTML = originalBtnText;
+                        loginBtn.disabled = false;
+                    });
+            });
+
+            function validateKeyAuth(licenseKey, username, password) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        if (licenseKey && username && password) {
+                            if (licenseKey.includes('RIFLE') || licenseKey.length > 12) {
+                                resolve({
+                                    success: true,
+                                    message: 'Authentication successful',
+                                    subscriptionType: 'Premium Lifetime',
+                                    expiry: 'Never',
+                                    purchaseDate: '2023-03-15',
+                                    hwid: 'Verified',
+                                    activationsUsed: 1,
+                                    activationsTotal: 2
+                                });
+                            } else {
+                                resolve({
+                                    success: false,
+                                    message: 'Invalid license key'
+                                });
+                            }
+                        } else {
+                            resolve({
+                                success: false,
+                                message: 'All fields are required'
+                            });
+                        }
+                    }, 1500);
+                });
+            }
+
+            function updateDashboardInfo(userData) {
+                document.querySelector('#subscription .subscription-detail:nth-of-type(1) p').textContent = userData.subscriptionType;
+                document.querySelector('#subscription .subscription-detail:nth-of-type(4) p').textContent = userData.expiry;
+                
+                const licenseCard = document.querySelectorAll('#subscription .dashboard-card')[1];
+                
+                const licenseKeyContainer = licenseCard.querySelectorAll('.subscription-detail')[0];
+                const licenseKeyParagraph = licenseKeyContainer.querySelector('p');
+                const licenseKey = document.getElementById('license-key').value;
+                const maskedKey = licenseKey.replace(/./g, (c, i) => i < 4 || i > 12 ? c : '*');
+                
+                licenseKeyParagraph.innerHTML = `<span class="license-key-display" data-full-key="${licenseKey}">${maskedKey}</span>`;
+                licenseKeyParagraph.querySelector('.license-key-display').addEventListener('mouseenter', function() {
+                    this.textContent = this.getAttribute('data-full-key');
+                });
+                licenseKeyParagraph.querySelector('.license-key-display').addEventListener('mouseleave', function() {
+                    this.textContent = maskedKey;
+                });
+                
+                const activationsContainer = licenseCard.querySelectorAll('.subscription-detail')[1];
+                activationsContainer.querySelector('p').textContent = `${userData.activationsUsed} of ${userData.activationsTotal} used`;
+                
+                const hwidContainer = licenseCard.querySelectorAll('.subscription-detail')[3];
+                hwidContainer.querySelector('p').textContent = userData.hwid;
+                
+                document.getElementById('profile-username').value = document.getElementById('username').value;
+            }
+
+            const navItems = document.querySelectorAll('.dashboard-nav-item');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            navItems.forEach(item => {
+                if (item.id !== 'logout-btn') {
+                    item.addEventListener('click', function() {
+                        navItems.forEach(navItem => navItem.classList.remove('active'));
+                        tabContents.forEach(tabContent => tabContent.classList.remove('active'));
+                        this.classList.add('active');
+                        const tabId = this.getAttribute('data-tab');
+                        document.getElementById(tabId).classList.add('active');
+                    });
+                }
+            });
+
+            const logoutBtn = document.getElementById('logout-btn');
+            logoutBtn.addEventListener('click', function() {
+                sessionStorage.removeItem('riflecheat_user');
+                dashboardSection.style.display = 'none';
+                loginSection.style.display = 'flex';
+                loginForm.reset();
+                loginErrorMsg.style.display = 'none';
+            });
+
+            const storedUser = sessionStorage.getItem('riflecheat_user');
+            if (storedUser) {
+                try {
+                    const userData = JSON.parse(storedUser);
+                    document.getElementById('license-key').value = userData.licenseKey;
+                    document.getElementById('username').value = userData.username;
+                    
+                    loginSection.style.display = 'none';
+                    dashboardSection.style.display = 'block';
+                    
+                    updateDashboardInfo({
+                        subscriptionType: userData.subscriptionType,
+                        expiry: userData.expiry,
+                        activationsUsed: 1,
+                        activationsTotal: 2,
+                        hwid: 'Verified'
+                    });
+                } catch (error) {
+                    console.error('Error parsing stored user data:', error);
+                    sessionStorage.removeItem('riflecheat_user');
+                }
+            }
+
+            function createBubbles() {
+                const bubblesContainer = document.querySelector('.bubbles-container');
+                const bubbleCount = 20;
+                
+                for (let i = 0; i < bubbleCount; i++) {
+                    const bubble = document.createElement('div');
+                    bubble.classList.add('bubble');
+                    
+                    const size = Math.random() * 80 + 20;
+                    bubble.style.width = `${size}px`;
+                    bubble.style.height = `${size}px`;
+                    
+                    bubble.style.left = `${Math.random() * 100}%`;
+                    bubble.style.bottom = `-${size}px`;
+                    
+                    const delay = Math.random() * 15;
+                    bubble.style.animationDelay = `${delay}s`;
+                    
+                    const duration = Math.random() * 10 + 10;
+                    bubble.style.animationDuration = `${duration}s`;
+                    
+                    bubblesContainer.appendChild(bubble);
+                }
+            }
+
+            document.getElementById('account-info-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const username = document.getElementById('profile-username').value;
+                const email = document.getElementById('profile-email').value;
+                const discordUsername = document.getElementById('profile-discord').value;
+                const telegramUsername = document.getElementById('profile-telegram').value;
+
+                if (!username || !email) {
+                    alert('Username and Email are required.');
+                    return;
+                }
+
+                try {
+                    console.log('Updating account information:', {
+                        username,
+                        email,
+                        discordUsername,
+                        telegramUsername
+                    });
+
+                    alert('Account information updated successfully!');
+                } catch (error) {
+                    console.error('Error updating account information:', error);
+                    alert('Failed to update account information. Please try again.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

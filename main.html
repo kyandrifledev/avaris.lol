@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>riflecheat.com | Premium FiveM & GTA V Cheats</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8A2BE2; 
+            --secondary: #4A4A4A; 
+            --dark: #0a0a0a;
+            --darker: #050505;
+            --light: #f5f5f5;
+            --gray: #333333;
+            --purple: #8A2BE2;
+            --light-purple: #A64DFF;
+            --deep-purple: #6A1FB3;
+            --violet: #9400D3;
+            --indigo: #4B0082;
+            --light-gray: #808080;
+            --purple-glow: 0 0 10px rgba(138, 43, 226, 0.4); 
+            --intense-purple-glow: 0 0 15px rgba(166, 77, 255, 0.6);
+            --grey-gradient: linear-gradient(135deg, #4A4A4A, #333333);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--light);
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, var(--darker), #101010, var(--darker), #101010, var(--darker));
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://wallpaperaccess.com/full/1363028.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .section-divider, .divider-wave, .divider-slant {
+            display: none;
+        }
+
+        section {
+            position: relative;
+            z-index: 2;
+            padding: 5rem 0;
+            background: transparent;
+            margin: 0;
+            border: none;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 5, 0.7);
+            z-index: 1;
+        }
+
+        .features::before, .pricing::before, .testimonials::before, 
+        .faq::before, .cta::before {
+            background: rgba(5, 5, 5, 0.7);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: var(--purple-glow); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(138, 43, 226, 0.9); }
+            100% { transform: scale(1); box-shadow: var(--purple-glow); }
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            background-color: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--light);
+            text-decoration: none;
+            color: var(--purple);
+            -webkit-text-fill-color: transparent;
+            background: linear-gradient(270deg, var(--purple), var(--light-purple), var(--violet), var(--indigo), var(--deep-purple));
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: purpleFlow 15s ease infinite;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.3));
+        }
+        
+        .logo:hover {
+            text-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
+            filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.4));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 5px 0;
+            background-size: 200% 100%;
+            background-position: 100% 0;
+            background-image: linear-gradient(to right, transparent 50%, rgba(138, 43, 226, 0.1) 50%);
+            transition: background-position 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--purple);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple);
+            background-position: 0 0;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background: linear-gradient(270deg, var(--purple), var(--light-purple), var(--violet), var(--indigo), var(--deep-purple));
+            background-size: 400% 400%;
+            animation: purpleFlow 15s ease infinite;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(270deg, var(--deep-purple), var(--violet), var(--light-purple), var(--purple), var(--indigo));
+            background-size: 400% 400%;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .cta-btn:hover::before {
+            opacity: 1;
+            animation: purpleFlow 15s ease infinite;
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--purple);
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            box-shadow: var(--purple-glow);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .secondary-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(270deg, var(--purple), var(--light-purple), var(--violet), var(--indigo), var(--deep-purple));
+            background-size: 400% 400%;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .secondary-btn:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
+        }
+
+        .secondary-btn:hover::before {
+            opacity: 1;
+            animation: purpleFlow 15s ease infinite;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(10, 10, 10, 0.5) 0%, rgba(5, 5, 5, 0.8) 70%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            animation: fadeIn 1s ease-out;
+            padding-top: 80px; 
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 800;
+            -webkit-text-fill-color: transparent;
+            background: linear-gradient(270deg, var(--purple), var(--light-purple), var(--violet), var(--indigo), var(--deep-purple));
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: purpleFlow 15s ease infinite;
+            filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.3));
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            animation: fadeIn 1.4s ease-out;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeIn 1.6s ease-out;
+        }
+
+        .features {
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            -webkit-text-fill-color: transparent;
+            background: linear-gradient(270deg, var(--purple), var(--light-purple), var(--violet), var(--indigo), var(--deep-purple));
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: purpleFlow 15s ease infinite;
+            filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.3));
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(270deg, var(--purple), var(--light-purple), var(--violet), var(--indigo), var(--deep-purple));
+            background-size: 400% 400%;
+            bottom: -10px;
+            left: 25%;
+            border-radius: 2px;
+            animation: purpleFlow 15s ease infinite;
+            box-shadow: 0 0 10px 2px rgba(138, 43, 226, 0.3);
+        }
+
+        .section-title p {
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.07));
+            border-radius: 10px;
+            padding: 2rem;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 1s ease-out;
+            animation-fill-mode: both;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.05), rgba(138, 43, 226, 0.15));
+            z-index: -1;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: var(--purple);
+        }
+
+        .feature-card:hover::before {
+            transform: translateY(0);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--purple);
+            text-shadow: var(--purple-glow);
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            animation: none; 
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover h3 {
+            color: var(--purple);
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .pricing {
+            position: relative;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.07));
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+            animation-fill-mode: both;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.05), rgba(138, 43, 226, 0.15));
+            z-index: -1;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .pricing-card:hover::before {
+            transform: translateY(0);
+        }
+
+        .pricing-card.popular {
+            border-color: var(--purple);
+            transform: none;
+            box-shadow: var(--purple-glow);
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: linear-gradient(270deg, var(--purple), var(--light-purple));
+            background-size: 200% 100%;
+            animation: purpleFlow 15s ease infinite;
+            color: white;
+            padding: 0.5rem 2rem;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: var(--purple-glow);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-card.popular:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 15px rgba(138, 43, 226, 0.6);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 2rem 0;
+            -webkit-text-fill-color: transparent;
+            background: linear-gradient(270deg, var(--purple), var(--light-purple), var(--violet), var(--indigo), var(--deep-purple));
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: purpleFlow 15s ease infinite;
+            filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.3));
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .testimonials {
+            position: relative;
+        }
+
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.07));
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease-out;
+            animation-fill-mode: both;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.05), rgba(138, 43, 226, 0.1));
+            z-index: -1;
+            transform: translateX(-100%);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .testimonial:hover::before {
+            transform: translateX(0);
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--purple);
+            text-shadow: var(--purple-glow);
+        }
+
+        .faq {
+            position: relative;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .faq-item:nth-child(1) { animation-delay: 0.1s; }
+        .faq-item:nth-child(2) { animation-delay: 0.2s; }
+        .faq-item:nth-child(3) { animation-delay: 0.3s; }
+        .faq-item:nth-child(4) { animation-delay: 0.4s; }
+        .faq-item:nth-child(5) { animation-delay: 0.5s; }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.07));
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 1000px;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--purple);
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .cta {
+            position: relative;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            -webkit-text-fill-color: transparent;
+            background: linear-gradient(270deg, var(--purple), var(--light-purple), var(--violet), var(--indigo), var(--deep-purple));
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: purpleFlow 15s ease infinite;
+            filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.3));
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .cta .cta-btn {
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1.2s ease-out, pulse 3s infinite;
+        }
+
+        footer {
+            background: rgba(5, 5, 5, 0.9);
+            padding: 4rem 0 2rem;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(270deg, var(--purple), var(--light-purple), var(--violet), var(--indigo), var(--deep-purple));
+            background-size: 400% 400%;
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+            animation: purpleFlow 15s ease infinite;
+            box-shadow: 0 0 8px 1px rgba(138, 43, 226, 0.3);
+        }
+
+        .footer-column p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 2px 0;
+            background-size: 200% 100%;
+            background-position: 100% 0;
+            background-image: linear-gradient(to right, transparent 50%, rgba(138, 43, 226, 0.1) 50%);
+            transition: background-position 0.3s ease, color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--purple);
+            padding-left: 5px;
+            text-shadow: 0 0 8px rgba(138, 43, 226, 0.4);
+            background-position: 0 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--light);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--purple);
+            transform: translateY(-3px);
+            box-shadow: var(--purple-glow);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+
+            .pricing-card.popular:hover {
+                transform: translateY(-10px);
+            }
+        }
+
+        .logo, .hero h1, .section-title h2, .testimonial-author, .price {
+            text-shadow: var(--purple-glow);
+        }
+
+        .section-title h2::after, .footer-column h3::after {
+            box-shadow: var(--purple-glow);
+        }
+
+        .cta-btn, .secondary-btn {
+            box-shadow: var(--purple-glow);
+        }
+
+        .cta-btn:hover, .secondary-btn:hover {
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
+        }
+
+        .pricing-card {
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.05), rgba(138, 43, 226, 0.15));
+            z-index: -1;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .pricing-card:hover::before {
+            transform: translateY(0);
+        }
+
+        .testimonial {
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.05), rgba(138, 43, 226, 0.1));
+            z-index: -1;
+            transform: translateX(-100%);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .testimonial:hover::before {
+            transform: translateX(0);
+        }
+
+        .fade-in-left, .fade-in-right, .fade-in-up, .fade-in, .pop-in, .zoom-in, .flip-in {
+            opacity: 0;
+            transform-origin: center;
+            will-change: transform, opacity;
+            transition: opacity 0.8s ease-out, 
+                        transform 0.8s ease-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        .fade-in-left {
+            transform: translateX(-40px);
+        }
+
+        .fade-in-right {
+            transform: translateX(40px);
+        }
+
+        .fade-in-up {
+            transform: translateY(40px);
+        }
+
+        .fade-in {
+            opacity: 0;
+        }
+
+        .pop-in {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+
+        .in-view {
+            opacity: 1 !important;
+            transform: translateX(0) translateY(0) scale(1) !important;
+        }
+
+        section {
+            position: relative;
+            z-index: 2;
+        }
+
+        section::before {
+            z-index: 1;
+        }
+
+        .feature-card, .pricing-card, .testimonial, .faq-item {
+            position: relative;
+            z-index: 2;
+        }
+
+        .stagger-1 { transition-delay: 0.1s !important; }
+        .stagger-2 { transition-delay: 0.2s !important; }
+        .stagger-3 { transition-delay: 0.3s !important; }
+        .stagger-4 { transition-delay: 0.4s !important; }
+        .stagger-5 { transition-delay: 0.5s !important; }
+        .stagger-6 { transition-delay: 0.6s !important; }
+
+        .smooth-hover {
+            transition: all 0.3s ease-out;
+        }
+
+        .smooth-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes purpleFlow {
+            0% { 
+                background-position: 0% 50%;
+                box-shadow: none;
+            }
+            50% { 
+                background-position: 100% 50%;
+                box-shadow: none;
+            }
+            100% { 
+                background-position: 0% 50%;
+                box-shadow: none;
+            }
+        }
+
+        @keyframes textColorFlow {
+            0% { color: var(--purple); text-shadow: 0 0 8px rgba(138, 43, 226, 0.4); }
+            25% { color: var(--light-purple); text-shadow: 0 0 10px rgba(166, 77, 255, 0.4); }
+            50% { color: var(--violet); text-shadow: 0 0 12px rgba(148, 0, 211, 0.5); }
+            75% { color: var(--indigo); text-shadow: 0 0 10px rgba(75, 0, 130, 0.4); }
+            100% { color: var(--purple); text-shadow: 0 0 8px rgba(138, 43, 226, 0.4); }
+        }
+
+        @keyframes borderColorFlow {
+            0% { border-color: var(--purple); }
+            25% { border-color: var(--light-purple); }
+            50% { border-color: var(--violet); }
+            75% { border-color: var(--indigo); }
+            100% { border-color: var(--purple); }
+        }
+
+        .flowing-purple-bg {
+            background: linear-gradient(270deg, var(--purple), var(--light-purple), var(--violet), var(--indigo), var(--deep-purple));
+            background-size: 400% 400%;
+            animation: purpleFlow 15s ease infinite;
+        }
+
+        .flowing-purple-text {
+            animation: textColorFlow 15s ease infinite;
+        }
+
+        .flowing-purple-border {
+            animation: borderColorFlow 15s ease infinite;
+        }
+
+        .bubbles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(270deg, 
+                rgba(138, 43, 226, 0.15), 
+                rgba(166, 77, 255, 0.15), 
+                rgba(148, 0, 211, 0.15), 
+                rgba(75, 0, 130, 0.15), 
+                rgba(106, 31, 179, 0.15));
+            background-size: 400% 400%;
+            animation: bubble 8s ease-in-out infinite, floatUp 15s linear infinite, purpleFlow 15s ease infinite;
+            filter: blur(2px);
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">riflecheat</a>
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="cta-btn">Purchase Now</button>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="fade-in-up">Dominate FiveM & GTA V with Premium Cheats</h1>
+            <p class="fade-in-up stagger-1">Experience the ultimate advantage with our undetected, feature-rich mod menu. Stay ahead of the competition with our regularly updated cheats designed for optimal performance.</p>
+            <div class="hero-buttons fade-in-up stagger-2">
+                <button class="cta-btn jello-hover">Get Started</button>
+                <button class="secondary-btn jello-hover">Learn More</button>
+            </div>
+        </div>
+        <div class="floating-element" style="width: 300px; height: 300px; top: 20%; left: 10%; animation: floatUp 15s ease-in-out infinite;"></div>
+        <div class="floating-element" style="width: 200px; height: 200px; bottom: 10%; right: 15%; animation: floatSideways 12s ease-in-out infinite;"></div>
+    </section>
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Premium Features</h2>
+                <p>Our advanced cheat menu provides you with the ultimate gaming experience</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in-up stagger-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Undetected Protection</h3>
+                    <p>Our cheat utilizes advanced technology to remain undetected by anti-cheat systems, ensuring your gaming experience stays secure.</p>
+                </div>
+                <div class="feature-card fade-in-up stagger-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Performance Boost</h3>
+                    <p>Optimized code ensures minimal impact on your game performance while providing maximum functionality.</p>
+                </div>
+                <div class="feature-card fade-in-up stagger-3">
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Ultimate Customization</h3>
+                    <p>Tailor your gameplay with a wide range of customizable options and settings to match your personal style.</p>
+                </div>
+                <div class="feature-card fade-in-up stagger-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Regular Updates</h3>
+                    <p>Stay ahead with frequent updates that include new features and ensure compatibility with game patches.</p>
+                </div>
+                <div class="feature-card fade-in-up stagger-5">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our dedicated support team is available around the clock to assist with any issues or questions you may have.</p>
+                </div>
+                <div class="feature-card fade-in-up stagger-6">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Instant Delivery</h3>
+                    <p>Get access to our premium cheats immediately after purchase with our automated delivery system.</p>
+                </div>
+            </div>
+        </div>
+        <div class="floating-element" style="width: 250px; height: 250px; top: 30%; right: 5%; animation: floatUp 18s ease-in-out infinite;"></div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Choose Your Plan</h2>
+                <p>Select a pricing plan that suits your needs</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card fade-in-up stagger-1">
+                    <h3>Day Pass</h3>
+                    <div class="price">$9.99<span>/day</span></div>
+                    <ul class="pricing-features">
+                        <li>Full Feature Access</li>
+                        <li>24 Hours Usage</li>
+                        <li>Basic Support</li>
+                        <li>No Updates</li>
+                        <li>Single PC</li>
+                    </ul>
+                    <button class="cta-btn">Purchase Now</button>
+                </div>
+                <div class="pricing-card popular fade-in-up stagger-2">
+                    <div class="popular-tag">BEST VALUE</div>
+                    <h3>Premium</h3>
+                    <div class="price">$49.99<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Full Feature Access</li>
+                        <li>30 Days Usage</li>
+                        <li>Priority Support</li>
+                        <li>Free Updates</li>
+                        <li>Single PC</li>
+                    </ul>
+                    <button class="cta-btn">Purchase Now</button>
+                </div>
+                <div class="pricing-card fade-in-up stagger-3">
+                    <h3>Lifetime</h3>
+                    <div class="price">$149.99<span>/lifetime</span></div>
+                    <ul class="pricing-features">
+                        <li>Full Feature Access</li>
+                        <li>Unlimited Usage</li>
+                        <li>VIP Support</li>
+                        <li>Lifetime Updates</li>
+                        <li>Two PCs</li>
+                    </ul>
+                    <button class="cta-btn">Purchase Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="floating-element" style="width: 180px; height: 180px; bottom: 20%; left: 8%; animation: floatSideways 14s ease-in-out infinite;"></div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>What Our Users Say</h2>
+                <p>Hear from our satisfied customers</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial fade-in-up stagger-1">
+                    <p class="testimonial-text">"This is hands down the best cheat I've ever used. Clean UI, tons of features, and the support team responds quickly. Definitely worth the money!"</p>
+                    <p class="testimonial-author">- Alex K.</p>
+                </div>
+                <div class="testimonial fade-in-up stagger-2">
+                    <p class="testimonial-text">"Been using riflecheat for 6 months now without any issues. The regular updates keep it working perfectly, and the features are constantly improving."</p>
+                    <p class="testimonial-author">- Michael R.</p>
+                </div>
+                <div class="testimonial fade-in-up stagger-3">
+                    <p class="testimonial-text">"After trying several other cheat providers, I can confidently say riflecheat is leagues ahead of the competition. Stable, feature-rich, and undetected."</p>
+                    <p class="testimonial-author">- Sarah L.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our products</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item fade-in-up stagger-1">
+                    <div class="faq-question">
+                        Is this safe to use? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our cheat is designed with safety as a top priority. We use advanced undetection methods to keep your account safe. However, as with any third-party software, there's always a small risk. We recommend using an alt account for added security.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in-up stagger-2">
+                    <div class="faq-question">
+                        How do I receive the product after purchase? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>After completing your purchase, you'll receive an email with download instructions and your license key. You can also access your purchase immediately in your account dashboard.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in-up stagger-3">
+                    <div class="faq-question">
+                        Do you offer refunds? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a 24-hour refund policy if the product doesn't work as described. However, we do not offer refunds for bans or after the product has been used extensively.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in-up stagger-4">
+                    <div class="faq-question">
+                        How often do you update the cheat? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We update our cheat regularly, typically within 24-48 hours after game updates. We also add new features and improvements on a weekly basis to ensure you have the best experience possible.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in-up stagger-5">
+                    <div class="faq-question">
+                        What payment methods do you accept? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept various payment methods including credit/debit cards, PayPal, Bitcoin, and other cryptocurrencies for your convenience and privacy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2 class="fade-in-up">Ready to Dominate?</h2>
+            <p class="fade-in-up stagger-1">Take your gaming experience to the next level with our premium cheats. Join thousands of satisfied customers who trust EdgeMod for the ultimate gaming advantage.</p>
+            <button class="cta-btn fade-in-up stagger-2">Get Started Now</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>riflecheat</h3>
+                    <p>Providing premium GTA V and FiveM cheats with unparalleled features and security. Your ultimate gaming advantage.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">GTA V Cheats</a></li>
+                        <li><a href="#">FiveM Mods</a></li>
+                        <li><a href="#">Special Bundles</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Discord Community</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Licensing</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 riflecheat. All rights reserved. Not affiliated with Rockstar Games or Take-Two Interactive.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="bubbles-container"></div>
+
+    <script>
+        function animateOnScroll() {
+            const animatedElements = document.querySelectorAll(
+                '.fade-in-left, .fade-in-right, .fade-in-up, .fade-in, .pop-in, .zoom-in, .flip-in'
+            );
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('in-view');
+                        }, 50);
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        function createBubbles() {
+            const bubblesContainer = document.querySelector('.bubbles-container');
+            const bubbleCount = 20;
+            
+            for (let i = 0; i < bubbleCount; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                const size = Math.random() * 80 + 20;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.top = `${Math.random() * 100}%`;
+                
+                const delay = Math.random() * 15;
+                bubble.style.animationDelay = `${delay}s`;
+                
+                const duration = Math.random() * 10 + 10;
+                bubble.style.animationDuration = `${duration}s`;
+                
+                bubblesContainer.appendChild(bubble);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            createBubbles();
+
+            setTimeout(() => {
+                animateOnScroll();
+                
+                const animatedElements = document.querySelectorAll(
+                    '.fade-in-left, .fade-in-right, .fade-in-up, .fade-in, .pop-in, .zoom-in, .flip-in'
+                );
+                
+                animatedElements.forEach((element, index) => {
+                    if (isElementInViewport(element)) {
+                        setTimeout(() => {
+                            element.classList.add('in-view');
+                        }, 100 * index);
+                    }
+                });
+            }, 200);
+            
+            const hoverableElements = document.querySelectorAll('.feature-card, .pricing-card');
+            hoverableElements.forEach(el => {
+                el.classList.add('smooth-hover');
+            });
+        });
+        
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+        
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                faqQuestions.forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+</body>
+</html>
